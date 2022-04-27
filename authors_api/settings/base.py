@@ -1,4 +1,3 @@
-from distutils.command.install import INSTALL_SCHEMES
 from pathlib import Path
 import environ
 
@@ -22,12 +21,12 @@ DJANGO_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
+    "django.contrib.admin",
 ]
 
-THIRD_PARTY = [
-    "restframework",
-    "dajango_filters",
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "django_filters",
     "django_countries",
     "phonenumber_field",
     "drf_yasg",
@@ -36,7 +35,7 @@ THIRD_PARTY = [
 
 LOCAL_APPS = ["core_apps.common", "core_apps.users", "core_apps.profiles",]
 
-INSTALL_APPS = DJANGO_APPS + THIRD_PARTY + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -118,9 +117,11 @@ USE_TZ = True
 
 SITE_ID = 1
 
-ADMIN_URL = 'supersecret/'
+ADMIN_URL = "supersecret/"
 
-ADMINS = [("""Paulo Martin""","fancykatbase@gmail.com")]
+ADMINS = [("""Paulo Martin""", "fancykatbase@gmail.com")]
+
+MANAGERS = ADMINS
 
 
 # Static files (CSS, JavaScript, Images)
